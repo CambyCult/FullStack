@@ -18,16 +18,18 @@
         height:80vh;
         width:100vw;
         display:grid;
-        grid-template-columns: repeat(3, 1fr);
+        grid-auto-columns:1fr;
+        grid-auto-flow: column;
+        /* grid-template-columns: repeat(3, minmax(0, 1fr)); */
     }
         .subContainerOne{
             display:flex;
-            justify-content: center;
+            align-items: center;
             flex-direction:column;
-            position:relative;
+            
             height:70vh;
             width:30vw;
-            background-color:blue;
+            /* background-color:blue; */
         
         }
         .subContainerTwo{
@@ -35,29 +37,28 @@
             justify-content: center;
             height:70vh;
             width:30vw;
-            background-color:red;
+            /* background-color:red; */
         }
         .subContainerThree{
             display:flex;
             justify-content: center;
             height:70vh;
             width:30vw;
-            background-color:yellow;
+            /* background-color:yellow; */
         }
-
+        /* First Column  */
         .messageButton{
             height:5vh;
-            position:absolute;
-            top:0;
-            transform: translate(50%,0%);
+            width:fit-content;
         }
         /* Second Column Forms */
         form {
+            height:60%;
             display: flex;
             flex-direction: column;
-            justify-content: space-evenly;
+            /* justify-content: space-evenly; */
             flex-grow: 1;
-            
+            margin-left:.5rem;
         }
         
         a, a:visited {
@@ -71,7 +72,7 @@
           font-family: 'Nunito', sans-serif;
           font-size: 22px;
           
-          /* border-radius: 0.5rem; */
+          border-radius: 0.5rem;
         }
         
         label,
