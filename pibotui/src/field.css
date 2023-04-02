@@ -36,6 +36,18 @@ form {
   color: #444;
 }
 
+.flex-shifts{
+  margin-right: 1.4rem;
+  display: flex;
+  justify-content: space-evenly;
+  margin-bottom: 1.2rem;
+}
+
+form textarea {
+  height: 5rem;
+}
+
+
 
 .bottom-Bar {
   position:fixed;

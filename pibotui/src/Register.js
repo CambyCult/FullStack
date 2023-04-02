@@ -6,7 +6,9 @@ import {
 } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import "./field.css";
-import { Link } from "react-router-dom";
+import "./Register.css";
+import { Modal } from "./Modal";
+import { Login } from "./Login";
 
 const USER_REGEX = /^[a-zA-Z][a-zA-Z0-9-_]{3,23}$/;
 /* Validates User Parameters| Must start with upper or lower case letter, Must be followed by 3-23 upper or lowercase letters, digits, hyphens, or underscores.  */
@@ -76,8 +78,20 @@ const Register = () => {
     setSuccess(true);
   };
 
+  const [isModalVisible, setIsModalVisible] = useState(false);
+
+  //display modal with login and remove previous local storage
+  const handleModal = () => {
+    localStorage.removeItem("jwt");
+    setIsModalVisible(true);
+  };
+
+  const onHideModal = () => {
+    setIsModalVisible(false);
+  };
+
   return (
-    <section>
+    <section className="main-container">
       <p
         ref={errRef}
         className={errMsg ? "errmsg" : "offscreen"}
@@ -87,7 +101,7 @@ const Register = () => {
         {errMsg}
       </p>
       <h1>Register</h1>
-      <form onSubmit={handleSubmit}>
+      <form onSubmit={handleSubmit} class="form-container">
         <label htmlFor="username">
           Username:
           <span className={validName ? "valid" : "hide"}>
@@ -202,10 +216,14 @@ const Register = () => {
         Already Registered?
         <br />
         <span className="line">
-          {/*put router link here*/}
-          <Link to="/login">Sign In</Link>
+          <button type="button" onClick={handleModal}>
+            Sign In
+          </button>
         </span>
       </p>
+      <Modal show={isModalVisible} onClose={onHideModal}>
+        <Login />
+      </Modal>
     </section>
   );
 };

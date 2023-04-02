@@ -1,0 +1,14 @@
+form {
+    margin-top: 1.5rem;
+    max-width: 16rem;
+  }
+  
+  input {
+    height: 1.85rem;
+    border: 2px solid #444;
+    border-radius: 10px;
+  }
+  
+  button {
+    margin-top: 2rem;
+  }
