@@ -2,10 +2,6 @@
   text-align: center;
 }
 
-
-
-
-
 .App-header {
   background-color: #282c34;
   min-height: 100vh;
@@ -34,7 +30,7 @@
 }
 
 form {
-  width: 45vw;
+  width: 25vw;
   margin: auto;
   background: #fff;
   color: #444;
@@ -43,7 +39,7 @@ form {
 
 .bottom-Bar {
   position:fixed;
-  background-color:black;
+  background-color:rgb(4,2,44);
   height:10vh;
   width:100vw;
   left:0;
@@ -67,5 +63,5 @@ form {
           background:rgb(133, 89, 133);
         }
             .tabulator-row-even{
-              background:blue;
+              background:rgb(155, 37, 233);
             }

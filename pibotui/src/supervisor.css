@@ -1,0 +1,82 @@
+
+
+.superContainer{
+    display:flex;
+    flex-direction:column;
+    height:90vh;
+    width:100vw;
+}   
+    /* Messages at top of screen */
+    .titleBar{
+        color:black;
+        height:10vh;
+        width:100vw;
+    }
+
+    /* Content Columns */
+    .subContainer{
+        height:80vh;
+        width:100vw;
+        display:grid;
+        grid-template-columns: repeat(3, 1fr);
+    }
+        .subContainerOne{
+            display:flex;
+            justify-content: center;
+            flex-direction:column;
+            position:relative;
+            height:70vh;
+            width:30vw;
+            background-color:blue;
+        
+        }
+        .subContainerTwo{
+            display:flex;
+            justify-content: center;
+            height:70vh;
+            width:30vw;
+            background-color:red;
+        }
+        .subContainerThree{
+            display:flex;
+            justify-content: center;
+            height:70vh;
+            width:30vw;
+            background-color:yellow;
+        }
+
+        .messageButton{
+            height:5vh;
+            position:absolute;
+            top:0;
+            transform: translate(50%,0%);
+        }
+        /* Second Column Forms */
+        form {
+            display: flex;
+            flex-direction: column;
+            justify-content: space-evenly;
+            flex-grow: 1;
+            
+        }
+        
+        a, a:visited {
+            color: #fff;
+        }
+        
+        input[type="text"],
+        input[type="password"],
+        button,
+        textarea {
+          font-family: 'Nunito', sans-serif;
+          font-size: 22px;
+          
+          /* border-radius: 0.5rem; */
+        }
+        
+        label,
+        button {
+          margin-top: 1rem;
+        }
+        
+       

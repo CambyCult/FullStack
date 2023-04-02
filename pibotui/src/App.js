@@ -18,12 +18,7 @@ function App() {
         </Routes>
       </BrowserRouter>
 
-      {/* <div className="header">
-          <button className="button-1" onClick="openNav()">SB</button>
-          <div className="button-2"></div>
-          <div className="button-3"></div>
-          <div className="button-4"></div>
-        </div> */}
+     
     </main>
   );
 }
