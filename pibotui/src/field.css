@@ -1,58 +1,71 @@
 .App {
-    text-align: center;
-  }
-  
-  
-  
-  
-  
-  .App-header {
-    background-color: #282c34;
-    min-height: 100vh;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    font-size: calc(10px + 2vmin);
-    color: white;
-  }
-  
-  
-  .container {
-    position:fixed;
-    top:0;
-    left:0;
-    height:90vh;
-    width:100vw;
-    background-color:rgb(83, 37, 126);
-  }
-  
-  
-  .bottom-Bar {
-    position:fixed;
-    background-color:black;
-    height:10vh;
-    width:100vw;
-    left:0;
-    bottom:0;
-  }
-  
-  .container{
-    display:flex;
-    align-items:center;
-    justify-content: center;
-  }
-      .tabulator{
-        font-size:2vh;
-        max-width: 90%;
-      }
-          .tabulator-header{
-            font-size:large;
-          }
-  
-          .tabulator-row{
-            background:rgb(133, 89, 133);
-          }
-              .tabulator-row-even{
-                background:blue;
-              }
+  text-align: center;
+}
+
+
+
+
+
+.App-header {
+  background-color: #282c34;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  font-size: calc(10px + 2vmin);
+  color: white;
+}
+
+
+.container {
+  /* position:fixed; */
+  top:0;
+  left:0;
+  height:60vh;
+  width:100vw;
+  background-color:rgb(83, 37, 126);
+}
+.container2 {
+  /* position:fixed; */
+  height:100vh;
+  width:100vw;
+  background-color:rgb(83, 37, 126);
+}
+
+form {
+  width: 45vw;
+  margin: auto;
+  background: #fff;
+  color: #444;
+}
+
+
+.bottom-Bar {
+  position:fixed;
+  background-color:black;
+  height:10vh;
+  width:100vw;
+  left:0;
+  bottom:0;
+}
+
+.container{
+  display:flex;
+  align-items:center;
+  justify-content: center;
+}
+    .tabulator{
+      font-size:2vh;
+      max-width: 90%;
+    }
+        .tabulator-header{
+          font-size:large;
+        }
+
+        .tabulator-row{
+          background:rgb(133, 89, 133);
+        }
+            .tabulator-row-even{
+              background:blue;
+            }
