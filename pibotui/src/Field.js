@@ -78,6 +78,20 @@ function Field() {
   };
   useEffect(handleChecklist, []);
 
+  // Retrieving itemChecklist for this Rig/User
+
+  const [itemChecklist, setItemChecklist] = useState({});
+  const handleItemChecklist = () => {
+    setItemChecklist("");
+    axios
+      .get(`http://localhost:3000/item_checklists/${userRig}.json`)
+      .then((response) => {
+        console.log(response.data);
+        setItemChecklist({ ...response.data });
+      });
+  };
+  useEffect(handleItemChecklist, []);
+
   //Tabulator
 
   const columns = [
@@ -118,6 +132,73 @@ function Field() {
     },
   ];
 
+  // item tabulator
+  const itemColumns = [
+    {
+      title: "Name",
+      field: "name",
+      editable: false,
+      editorParams: {
+        trueValue: true,
+        falseValue: false,
+        tristate: false,
+        elementAttributes: {
+          maxlength: "10", //set the maximum character length of the input element to 10 characters
+        },
+      },
+      widthGrow: 1,
+      responsive: 0,
+    },
+    {
+      title: "Minimum",
+      field: "minimum",
+      editable: false,
+      editorParams: {
+        trueValue: true,
+        falseValue: false,
+        tristate: false,
+        elementAttributes: {
+          maxlength: "10", //set the maximum character length of the input element to 10 characters
+        },
+      },
+      widthGrow: 1,
+      responsive: 0,
+    },
+    {
+      title: "Actual",
+      field: "actual",
+      editable: true,
+      editor: "number",
+      editorParams: {
+        elementAttributes: {
+          maxlength: "3", //set the maximum character length of the input element to 10 characters
+        },
+      },
+      widthGrow: 1,
+      responsive: 0,
+    },
+  ];
+
+  var itemData = [
+    {
+      id: 1,
+      name: `${Object.keys(itemChecklist)[1]}`,
+      minimum: `${Object.values(itemChecklist)[1]}`,
+      actual: `${Object.values(itemChecklist)[2]}`,
+    },
+    {
+      id: 2,
+      name: `${Object.keys(itemChecklist)[3]}`,
+      minimum: `${Object.values(itemChecklist)[3]}`,
+      actual: `${Object.values(itemChecklist)[4]}`,
+    },
+    {
+      id: 3,
+      name: `${Object.keys(itemChecklist)[5]}`,
+      minimum: `${Object.values(itemChecklist)[5]}`,
+      actual: `${Object.values(itemChecklist)[6]}`,
+    },
+  ];
   return (
     <div className="App">
       <h4 className="welcome">Welcome, {username.toUpperCase()}</h4>
@@ -128,6 +209,16 @@ function Field() {
             maxwidth={"75%"}
             data={data}
             columns={columns}
+            layout={"fitDataFill"}
+            layoutColumnsOnNewData={"true"}
+            responsiveLayout={"collapse"}
+            textDirection={"rtl"}
+          />
+          <ReactTabulator
+            maxheight={"100%"}
+            maxwidth={"75%"}
+            data={itemData}
+            columns={itemColumns}
             layout={"fitDataFill"}
             layoutColumnsOnNewData={"true"}
             responsiveLayout={"collapse"}
