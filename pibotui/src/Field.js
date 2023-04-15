@@ -64,16 +64,16 @@ function Field() {
 
   const userRig = localStorage.getItem("rig");
 
-  // Retrieving checklist for this Rig/User
+  // Retrieving booleanChecklist for this Rig/User
 
-  const [checklist, setChecklist] = useState({});
+  const [booleanChecklist, setBooleanChecklist] = useState({});
   const handleChecklist = () => {
-    setChecklist("");
+    setBooleanChecklist("");
     axios
-      .get(`http://localhost:3000/checklists/${userRig}.json`)
+      .get(`http://localhost:3000/boolean_checklists/${userRig}.json`)
       .then((response) => {
         console.log(response.data);
-        setChecklist({ ...response.data });
+        setBooleanChecklist({ ...response.data });
       });
   };
   useEffect(handleChecklist, []);
@@ -98,40 +98,24 @@ function Field() {
       widthGrow: 1,
       responsive: 0,
     },
-    {
-      title: "Min. Stock",
-      field: "min_stock",
-      editor: "number",
-      editorParams: {
-        min: 0,
-        max: 20,
-        elementAttributes: {
-          maxlength: "20",
-        },
-      },
-      widthGrow: 1,
-      responsive: 0,
-    },
-    // { title: "reqStock", field: "reqStock", widthGrow: 1, responsive: 1 },
   ];
 
   var data = [
     {
       id: 1,
-      item: `${Object.keys(checklist)[2]}`,
-      is_done: `${checklist.exterior_clean}`,
-      // stock: 2,
-      // reqStock: 4,
+      item: `${Object.keys(booleanChecklist)[1]}`,
+      is_done: `${Object.values(booleanChecklist)[1]}`,
     },
     {
       id: 2,
-      item: `${Object.keys(checklist)[4]}`,
-      is_done: null,
-      // stock: 3,
-      min_stock: `${checklist.cones_min}`,
+      item: `${Object.keys(booleanChecklist)[4]}`,
+      is_done: `${Object.values(booleanChecklist)[4]}`,
     },
-    { id: 3, item: "Bandaids", size: 4, stock: 7, reqStock: 12 },
-    { id: 4, item: "Whole-Blood", size: "O-", stock: 3, reqStock: 9 },
+    {
+      id: 3,
+      item: `${Object.keys(booleanChecklist)[3]}`,
+      is_done: `${Object.values(booleanChecklist)[3]}`,
+    },
   ];
 
   return (
